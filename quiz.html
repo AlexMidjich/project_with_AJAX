@@ -1,0 +1,108 @@
+<!--
+- Code written by Alexander Midjich for a school project.
+- API from swapi.co and information from Wookipedia - starwars.wikia.com
+-->
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Star Wars Trivia</title>
+
+	<!--Länk hänvisning för bootstrap css filerna-->
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+    <!--Egen css style-->
+	<link rel="stylesheet" type="text/css" href="style/main.css">
+
+    <!--Script för att få jQuery att fungera som det ska-->
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--Script för att få bootstrap att fungera som det ska-->
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	 
+	
+</head>
+<body>
+
+	<section class="jumbotron">
+      <div class="container-fluid">
+        <div class="row text-center">
+          <h2>Star Wars</h2>
+          <h3>Trivia</h3>
+        </div>
+      </div>
+    </section>
+
+    <nav class="navbar navbar-inverse">
+  		<div class="container-fluid">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>                        
+      		</button>
+    	</div>
+    	<div class="collapse navbar-collapse" id="myNavbar">
+      		<ul class="nav navbar-nav">
+        		<li><a href="index.html">Home</a></li>
+        		<li><a href="media.html">Media</a></li>
+        		<li class="active"><a href="quiz.html">Quiz</a></li>
+        		<li><a href="contact.html">Contact</a></li>
+      		</ul>
+    	</div>
+  		</div>
+	</nav>
+
+    <div class="container">
+	<section class="content">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Quiz section</h2>
+					<p>Try out Star Wars Trivias own quiz!</p>
+					<p>You can earn the ranks of either:</p>
+					<p>Padawan (5 questions)</p>
+					<p>Jedi Knight (10 questions)</p>
+					<p>Jedi Master (20 questions)</p>
+					<p>When you press one of the buttons a pop-up will appear.</p>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+					<p>Start quiz by chosing a level.</p>
+			</div>	
+
+			<div class="col-md-4 col-sm-4 col-xs-12">
+				<button class="btn btn-default" id="quiz5">Padawan</button>
+			</div>	
+			<div class="col-md-4 col-sm-4 col-xs-12">
+				<button class="btn btn-default" id="quiz10">Jedi Knight</button>
+			</div>	
+			<div class="col-md-4 col-sm-4 col-xs-12">
+				<button class="btn btn-default" id="quiz20">Jedi Master</button>
+			</div>		
+			<div class="col-md-12">
+				<!--This part lets the user know how the quiz went, how many correct answers, which level they achived and which questions were correct or incorrect. -->
+				<div id="output">
+				
+				</div>
+			</div>
+		</div>
+		<footer>
+      		<div class="row">
+      			<div class="col-md-4 col-sm-4 col-xs-12">
+        			<p class="footer">&copy 2016 Alexander</p>
+        		</div>
+        		<div class="col-md-8 col-sm-4 col-xs-12">	
+        			<p class="footer">Powered by: Star wars API (swapi) | Information from Wookipedia - starwars.wikia.com</p>
+        		</div>	
+
+        	</div>
+       	</footer>	
+	</section>
+	</div>
+	<!--Egna script-->  
+	  <script src="js/quiz.js"></script> 
+</body>
+</html>
+
+

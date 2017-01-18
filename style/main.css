@@ -1,0 +1,234 @@
+/*MAIN CSS*/
+body {
+	background-image: url("../img/bg2.jpg");
+	background-color: #000000;
+
+		
+	}
+h1, h4, ul, li, input{
+	color: #ffd700;
+}
+
+h2 {
+	font-size: 2.4em;
+	font-weight: 400;
+	margin-bottom: 8px;
+	color: #ffd700;
+	line-height: 1.2;
+}
+h3 {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #ffd700;
+}
+
+header nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+p {
+	color: #ffd700;
+	font-size: 1.0em;
+	margin-bottom: 10px;
+	line-height: 1.4;
+}
+.footer{
+	padding-top: 20px;
+	color: #ffffff;
+	font-size: 0.8em;
+	margin-bottom: 10px;
+	line-height: 1.4;
+	display: inline-block;
+}
+	
+.content {
+	box-sizing: border-box;
+	width: 90%;
+	max-width: auto;
+	background-color: rgba(0, 0, 0, 0.8);
+	opacity: 0,2;
+	padding: 10px 15px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/*END MAIN*/
+/*INDEX*/
+/*CSS för jumbotronen*/
+
+.jumbotron {
+	display: flex;
+  	align-items: center;
+  	background-color: rgba(0, 0, 0, 0.8);
+  	background-size: cover;
+  	color: #ffffff;
+  	width: 100%;
+  	height: 300px;
+  	text-shadow: 0.25px 0.25px 0.25px #000;
+}
+
+.jumbotron h2 {
+	font-size: 60px;
+	font-weight: 700;
+	margin: 0;
+	color: #ffffff;
+}
+
+.jumbotron h3 {
+	margin: 0 0 20px;
+	color: #ffffff;
+}
+.indextext{
+	color: #ffd700;
+	font-size: 1.0em;
+	margin-bottom: 10px;
+	line-height: 1.4;
+	padding: 20 b px;
+}
+/*Makes the content on index responsive*/
+.swrow{
+	display: inline-block;
+	width: 30%;
+	height: 300px;
+	margin: 10px;
+	text-align: center;
+}
+.imgsize{
+	display: block;
+	width: 100%;
+	height: 200px;
+}
+.imgcontact{
+	display: block;
+	width: 100%;
+	height: 200px;
+}
+@media (max-width: 1000px){
+.swrow{
+	display: inline;
+	width: auto;
+	height: 300px;
+	margin: auto;
+}
+.imgsize{
+	display: block;
+	margin: auto;
+	width: auto;
+	height: 200px;
+}
+.imgcontact{
+	display: block;
+	margin: auto;
+	width: 40%;
+	height: 200px;
+}
+}
+@media (max-width: 420px){
+.imgcontact{
+	display: block;
+	margin: auto;
+	width: 90%;
+	height: 200px;
+}
+}
+
+/*END INDEX*/
+/*MEDIA*/
+/*Hides the article text onLoad.*/
+
+#history_hide, #universe_hide, #jedi_hide, #sith_hide {
+display: none;
+}
+/*Hides the prev and next buttons in media-section*/
+#prevC, #nextC, #prevP, #nextP, #prevS, #nextS, #searchC, #searchP, #searchS, #submitC, #submitP, #submitS{
+	display: none;
+}
+/*Inputfield*/
+#searchC, #searchP, #searchS{
+	background-color: black;
+	font-size: 100%;
+	border: 1px dotted;
+	width: 150px;
+	height: 30px;
+	border-radius: 3px;
+	margin-top: 10px;
+}
+#submitC, #submitP, #submitS {
+	border: 1px;
+	border-radius: 3px;
+	width: 150px;
+	height: 30px;
+	margin-top: 10px;
+}
+#fontcolor{
+	color: #000000;
+}
+/*Moviecovers*/
+#poster{
+	width: 70%;
+	height: 250px;
+	display: none;
+}
+
+/*END MEDIA*/
+/*QUIZ*/
+
+#output{
+	padding: 20px;
+}
+
+/*END QUIZ*/
+/*CONTACT*/
+
+.txt_form{
+	font-size: 100%;
+	border: 1px dotted;
+	width: 350px;
+	height: 35px;
+	border-radius: 10px;
+	background-color: black;
+}
+.txt_box{
+	background-color: black;
+	font-size: 100%;
+	border: 1px dotted;
+	width: 350px;
+	height: 75px;
+	border-radius: 10px;
+}
+
+.btn_form{
+	border: 1px;
+	border-radius: 10px;
+	width: 150px;
+	height: 30px;
+}
+/*Helps with the responsivnes for the form*/
+@media (max-width: 450px){
+.txt_form{
+	font-size: 12px;
+	width: 150px;
+}
+.txt_box{
+	font-size: 12px;
+	width: 150px;
+}
+
+.btn_form{
+	width: 150px;
+}
+}
+/*END CONTACT*/
+
+
+
+
+
+
+
