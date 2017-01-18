@@ -4,12 +4,12 @@ A school project to learn AJAX and to get more familiar with js, jquery and boot
 <h1>Star Wars Trivia</h1>
 
 <h3>About</h3>
-<b>Developer:</b> Alexander Midjich
-<b>School:</b> Lernia Yrkeshögskola Distans
-<b>Program:</b> Javascriptdeveloper Front-End
-<b>Course:</b> Webbapplikatonsutveckling
-<b>Link to project:</b> http://www.booinacka.se/sw/quiz.html
-<b>LinkedIn Profile:</b> https://se.linkedin.com/in/alexander-midjich-2031b751
+<b>Developer:</b> Alexander Midjich<br>
+<b>School:</b> Lernia Yrkeshögskola Distans<br>
+<b>Program:</b> Javascriptdeveloper Front-End<br>
+<b>Course:</b> Webbapplikatonsutveckling<br>
+<b>Link to project:</b> http://www.booinacka.se/sw/quiz.html<br>
+<b>LinkedIn Profile:</b> https://se.linkedin.com/in/alexander-midjich-2031b751<br>
 
 <h3>Product</h3>
 
