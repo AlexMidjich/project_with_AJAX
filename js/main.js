@@ -1,4 +1,8 @@
+//////////////////////
+////jQueryscripts////
+//////////////////////
 $(document).ready(function(){
+
 	//jQuery click functions that toggles the articles in the media-section.
 	$( "#history_show" ).click(function() {
   		$( "#history_hide" ).slideToggle( "slow", function() {
@@ -29,7 +33,40 @@ $(document).ready(function(){
         $(this).css("background-color", "#000000");
     });
 
-});
+  //Change the background when entering the differens section alternative on index.html
+  $(".swrow").on({
+    mouseenter: function(){
+        $(this).css("background-color", "rgba(34, 34, 34, 0.8)");
+    }, 
+    mouseleave: function(){
+        $(this).css("background-color", "rgba(34, 34, 34, 0.0)");
+    }
+
+  });
+
+  //Change the img tag on hover
+
+  $('#media').hover(function () {
+      this.src = 'img/media2color.png';
+    }, function () {
+      this.src = 'img/media2.png';
+    });
+  $('#quiz').hover(function () {
+      this.src = 'img/quiz1color.png';
+    }, function () {
+      this.src = 'img/quiz1.png';
+    });
+  $('#contact').hover(function () {
+      this.src = 'img/contact1color.png';
+    }, function () {
+      this.src = 'img/contact1.png';
+    });
+  
+}); //End (document).ready(function)
+
+//////////////////////
+//////JavaScript//////
+//////////////////////
 
 //Validation for the form on the contact page.
 function validation() {
