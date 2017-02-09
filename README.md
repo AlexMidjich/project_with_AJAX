@@ -8,7 +8,7 @@ A school project to learn AJAX and to get more familiar with js, jquery and boot
 <b>School:</b> Lernia Yrkeshögskola Distans<br>
 <b>Program:</b> Javascriptdeveloper Front-End<br>
 <b>Course:</b> Webbapplikatonsutveckling<br>
-<b>Link to project:</b> http://www.booinacka.se/sw/quiz.html<br>
+<b>Link to project:</b> http://booinacka.se/sw/index.html<br>
 <b>LinkedIn Profile:</b> https://se.linkedin.com/in/alexander-midjich-2031b751<br>
 
 <h3>Product</h3>
