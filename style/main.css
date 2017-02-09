@@ -207,6 +207,25 @@ QUIZ
 ======================================
 */
 
+#radio, #submit{
+	visibility: hidden;
+}
+
+#question{
+	padding: 20px;
+}
+#submit{
+	margin-top: 20px;
+}
+
+#r1, #r2, #r3, #r4{
+	display: block;
+} 
+#c1, #c2, #c3, #c4{
+	color: #ffd700;
+	padding-bottom: 20px;
+} 
+
 #output{
 	padding: 20px;
 }

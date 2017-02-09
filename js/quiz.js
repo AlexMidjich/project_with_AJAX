@@ -1,198 +1,418 @@
-document.getElementById("quiz5").addEventListener("click", function(){
+$(document).ready(function() {
 
-var questions = [
-				["1. What color is Luke Skywalkers first lightsaber?", "blue"],
-				["2. Name the spaceship that Ray and Finn uses to escape Jakku?", "millennium falcon"],
-				["3. Give me the name of the latest Star Wars movie, released 2016?", "rouge one"],
-				["4. What year was the first Star Wars movie released", "1977"],
-				["5. In which movie does Luke meet Yoda for the first time, give me the title?",
-				 "the empire strikes back"],
-				];
-var counter = 0;
-var question;
-var answer;
-var response;
-var correctAnswers = [];
-var wrongAnswers = [];
-var html;
+	var quizP = [{
+			question: "What color is Luke Skywalkers first lightsaber?",
+			choices: ["Red", "Blue", "Yellow", "Green"],
+			correctAnswer: "0100" 
+		}, {
+		    question: "What is the spaceship called that Ray and Finn uses to escape Jakku?",
+		    choices: ["Millennium Falcon", "X-wing", "Tie-fighter", "Star cruiser"],
+		    correctAnswer: "1000"
+		}, {
+		    question: "Give me the name of the latest Star Wars movie, released 2016?",
+		    choices: ["The Force Awakens", "The Phantom Menace", "The Empire Strikes Back", "Rouge one"],
+		    correctAnswer: "0001"
+		}, {
+		    question: "What year was the first Star Wars movie released",
+		    choices: ["1967", "1977", "1987", "1982"],
+		    correctAnswer: "0100"
+		}, {
+		    question: "In which movie does Luke meet Yoda for the first time?",
+		    choices: ["A new Hope", "The Force Awakens", "The Empire Strikes Back", "Attack of the Clones"],
+		    correctAnswer: "0010"
+		}];
 
+	var counter = 0; //Tracks your number of guesses
+	var correctAnswers = []; //Stores all your right guesses
+	var wrongAnswers = []; //Stores all your wrong guesses
+	var html; //Prints out your results at the end of the quiz
 
-function print(message) {
-  var outputDiv = document.getElementById("output").innerHTML = message;
-}
-
-function list(arr){
-	var listHTML = "<ol>";
-		for (var i=0; i < arr.length; i+=1){
-			listHTML += "<li>" + arr[i] + "</li>"
-		}
-		listHTML += "</ol>"	;
-		return listHTML;
-}
-
-for(var i = 0; i < questions.length; i += 1){
-	question = questions[i][0];
-	answer = questions[i][1];
-	
-	response = prompt(question);
-	response = response.toLowerCase();
-	if (response === answer){
-		counter += 1;
-		correctAnswers.push(question);	
-	}else {
-		wrongAnswers.push(question);
+	//Function that directs where to print out the message at the end of the quiz
+	function print(message) {
+	  var outputDiv = document.getElementById("output").innerHTML = message;
 	}
-}
 
-html = "<p>You got " + counter + " out of " + questions.length + " correct answers.</p>";
+	//Function that is used to print out the message at the end of the quiz
+	function list(arr){
+		var listHTML = "<ol>";
+			for (var i=0; i < arr.length; i+=1){
+				listHTML += "<li>" + arr[i] + "</li>"
+			}
+			listHTML += "</ol>"	;
+			return listHTML;
+	}	
 
-if(counter > 4){
-	html += "<p>Congratulations! You achieved the rank of Padawan</p>";
-} else if (counter < 5) {
-	html += "<p>Keep practice if you want to become a Padawan</p>";
-} 
+	//Quiz starts when the button with id="quizP" is pressed 
+	$("#quiz5").click(function(){
+		document.getElementById("radio").style.visibility = "visible";
+		document.getElementById("submit").style.visibility = "visible";
+	var i = 0; //i is set to 0 so the first question in the object array will print out
+		
+		document.getElementById("question").innerHTML = quizP[i].question; //Prints the question
+		document.getElementById("c1").innerHTML = quizP[i].choices[0]; //Prints alt 1
+		document.getElementById("c2").innerHTML = quizP[i].choices[1]; //Prints alt 2
+		document.getElementById("c3").innerHTML = quizP[i].choices[2]; //Prints alt 3
+		document.getElementById("c4").innerHTML = quizP[i].choices[3]; //Prints alt 4
 
-html += "<p>You got these questions correct:</p>";
-html += list(correctAnswers);
-html += "<p>You got these questions wrong:</p>"
-html += list(wrongAnswers);
-print(html);
-});
-
-
-document.getElementById("quiz10").addEventListener("click", function(){
-
-var questions = [
-				["1. Who has a purple lightsaber in the Star Wars movies", "mace windu"],
-				["2. Who reveals himself as the emperor, also known as Darh Sidious?", "palpatine"],
-				["3. What species does Jar-Jar Binks belong to?", "gungans"],
-				["4. What is the name for the big moon like spacestation first seen in episode IV", "death star"],
-				["5. Who becomes Darth Vader?", "anakin skywalker"],
-				["6. Name the person that represent the planet of Naboo in the senate?", "padme amidala"],
-				['7. From what movie does the phrase "Luke I am your father" come from?', "the empire strikes back"],
-				["8. On what planet does the Ewoks live?", "endor"],
-				["9. What planet is Luke Skywalkers homeplanet?", "tatooine"],
-				["10. In epsiode III, what is the name of the planet where Obi-Wan defeats Anakin?", "mustafar"],
-				];
-var counter = 0;
-var question;
-var answer;
-var response;
-var correctAnswers = [];
-var wrongAnswers = [];
-var html;
-
-
-function print(message) {
-  var outputDiv = document.getElementById("output").innerHTML = message;
-}
-
-function list(arr){
-	var listHTML = "<ol>";
-		for (var i=0; i < arr.length; i+=1){
-			listHTML += "<li>" + arr[i] + "</li>"
-		}
-		listHTML += "</ol>"	;
-		return listHTML;
-}
-
-for(var i = 0; i < questions.length; i += 1){
-	question = questions[i][0];
-	answer = questions[i][1];
 	
-	response = prompt(question);
-	response = response.toLowerCase();
-	if (response === answer){
-		counter += 1;
-		correctAnswers.push(question);	
-	}else {
-		wrongAnswers.push(question);
+		$("#submit").click(function(){
+		//When button with id="submit" is pressed this script will check witch radiobutton is checked.		
+			if(document.getElementById("r1").checked)
+				answer="1000";
+			if(document.getElementById("r2").checked)
+				answer="0100";
+			if(document.getElementById("r3").checked)
+				answer="0010";
+			if(document.getElementById("r4").checked)
+				answer="0001";
+			if(answer===quizP[i].correctAnswer){ //Checks if you have the correct answer
+				console.log("correct");//This line is not neccesary
+				correctAnswers.push(quizP[i].question); //Adds all your correct answers to correctAnswers Array
+				counter+=1; //Add 1 to counter for each correct guess
+			}else{
+				console.log("wrong");//This line is not neccesary
+				wrongAnswers.push(quizP[i].question);//Adds all your wrong answers to wrongAnswers Array
+			}
+					
+		i+=1; //Adds 1 to submit every time that submit is pressed so that next question and alternatives will load
+		
+			if(i>=quizP.length){ //When you have answered all questions
+				console.log("stop");//This line is not neccesary
+				$("#question, #radio, #submit").fadeOut(1000);
+				$("#output").fadeIn(2000);
+				
+				html = "<p>You got " + counter + " out of " + quizP.length + " correct answers.</p>";
+
+				if(counter > 4){
+					html += "<h4>Congratulations! You achieved the rank of Padawan</h4>";
+				} else if (counter < 5) {
+					html += "<p>Keep practice if you want to become a Padawan</p>";
+				} 
+
+				html += "<p>You got these questions correct:</p>";
+				html += list(correctAnswers);
+				html += "<p>You got these questions wrong:</p>"
+				html += list(wrongAnswers);
+				print(html);
+
+			} else{
+
+			document.getElementById("question").innerHTML = quizP[i].question;
+			document.getElementById("c1").innerHTML = quizP[i].choices[0];
+			document.getElementById("c2").innerHTML = quizP[i].choices[1];
+			document.getElementById("c3").innerHTML = quizP[i].choices[2];
+			document.getElementById("c4").innerHTML = quizP[i].choices[3];
+			}
+		});
+	});
+
+	/*
+	=============================
+	=========End Padawan=========
+	=============================
+	*/
+
+	var quizK = [{
+			question: "Who has a purple lightsaber in the Star Wars movies?",
+			choices: ["Darth Vader", "Obi-Wan Kenobi", "Mace Windu", "Darth Maul"],
+			correctAnswer: "0010" 
+		}, {
+		    question: "Who reveals himself as the emperor, also known as Darh Sidious?",
+		    choices: ["Luke Skywalker", "Darth Vader", "Yoda", "Palpatine"],
+		    correctAnswer: "0001"
+		}, {
+		    question: "What species does Jar-Jar Binks belong to?",
+		    choices: ["Genosian", "Gungan", "Evok", "Twi-lek"],
+		    correctAnswer: "0100"
+		}, {
+		    question: "What is the name for the big moon like spacestation first seen in episode IV?",
+		    choices: ["Death Star", "Yavin IV", "Tatooine", "Cloud City"],
+		    correctAnswer: "1000"
+		}, {
+		    question: "Who becomes Darth Vader?",
+		    choices: ["Qui-Gon Jinn", "Palpatine", "Anakin Skywalker", "Han Solo"],
+		    correctAnswer: "0010"
+		}, {  
+			question: "Who represents the planet of Naboo in the senate??",
+			choices: ["c3p0", "Jar-Jar Binks", "Padme Amidala", "Bail Organa"],
+			correctAnswer: "0010" 
+		}, {
+		    question: 'From what movie does the phrase "Luke I am your father" come from?',
+		    choices: ["The Empire Strikes Back", "A New Hope", "The Force Awakens", "Rouge One"],
+		    correctAnswer: "1000"
+		}, {
+		    question: "On what planet/moon does the Ewoks live?",
+		    choices: ["Alderaan", "Jakku", "Evok", "Coruscant"],
+		    correctAnswer: "0010"
+		}, {
+		    question: "What planet is Luke Skywalkers homeplanet?",
+		    choices: ["Mustafar", "Tatooine", "Jakku", "Naboo"],
+		    correctAnswer: "0100"
+		}, {
+		    question: "In epsiode III, what is the name of the planet where Obi-Wan defeats Anakin?",
+		    choices: ["Bespin", "Hoth", "Dagobah", "Mustafar"],
+		    correctAnswer: "0001"
+		}];
+
+	var counter = 0;
+	var correctAnswers = [];
+	var wrongAnswers = [];
+	var html;
+
+
+	function print(message) {
+	  var outputDiv = document.getElementById("output").innerHTML = message;
 	}
-}
 
-html = "<p>You got " + counter + " out of " + questions.length + " correct answers.</p>";
-if(counter > 9){
-	html += "<p>Congratulations! You achieved the rank of Jedi Knight</p>";
-} else if (counter < 10) {
-	html += "<p>Keep practice if you want to become a Jedi Knight</p>";
-} 
-html += "<p>You got these questions correct:</p>";
-html += list(correctAnswers);
-html += "<p>You got these questions wrong:</p>"
-html += list(wrongAnswers);
-print(html);
-});
+	function list(arr){
+		var listHTML = "<ol>";
+			for (var i=0; i < arr.length; i+=1){
+				listHTML += "<li>" + arr[i] + "</li>"
+			}
+			listHTML += "</ol>"	;
+			return listHTML;
+	}	
 
-document.getElementById("quiz20").addEventListener("click", function(){
+	$("#quiz10").click(function(){
+	var i = 0;
+		document.getElementById("radio").style.visibility = "visible";
+		document.getElementById("submit").style.visibility = "visible";
+		document.getElementById("question").innerHTML = quizK[i].question;
 
-var questions = [
-				["1. Who is Obi-Wan Kenobis master?", "qui-gon jinn"],
-				["2. Who runs the operations on Cloud City?", "lando calrissian"],
-				["3. Name the movie that was released in 1999? (Give me the title)", "the phantom menace"],
-				["4. What is the spacestation called that was destroyed in the battle of Yavin?", "death star"],
-				["5. In which movie does Darth Vader defeat Obi-Wan (Give me the title)", "a new hope"],
-				["6. What is the name of the antagonist in Episode 1 - The phantom Menace?", "darth maul"],
-				["7. What is the traditional color of a siths lightsaber?", "red"],
-				["8. What planet is the capitol planet in the Star Wars universe", "corucant"],
-				["9. What is the name of the character that helped Luke get away from Tatooine?", "han solo"],
-				["10. What is the name of Poe Damerons astromech droid", "bb-8"],
-				["11. What is Han Solos spaceship called?", "millennium falcon"],
-				["12. Who is Luke Skywalkers sister?", "leia organa"],
-				["13. What is the title of Episode VII?", "the force awakens"],
-				["14. On what planet does the Gungans live?", "naboo"],
-				["15. What is the name of the bounty hunter that Han Solo encounters on Tatooine?", "greedo"],
-				["16. What is the name of the golden colored protocol droid?", "c3p0"],
-				["17. Who is Luke Skywalkers and Leia Organas birthmother?", "padme amidala"],
-				["18. What is the name of the order that Ben Solo is part of?", "knights of ren"],
-				["18. Who does Leia Organa maries to?", "han solo"],
-				["20. Who created the Star Wars universe", "george lucas"],
-				];
-var counter = 0;
-var question;
-var answer;
-var response;
-var correctAnswers = [];
-var wrongAnswers = [];
-var html;
+		document.getElementById("c1").innerHTML = quizK[i].choices[0];
+		document.getElementById("c2").innerHTML = quizK[i].choices[1];
+		document.getElementById("c3").innerHTML = quizK[i].choices[2];
+		document.getElementById("c4").innerHTML = quizK[i].choices[3];
 
-
-function print(message) {
-  var outputDiv = document.getElementById("output").innerHTML = message;
-}
-
-function list(arr){
-	var listHTML = "<ol>";
-		for (var i=0; i < arr.length; i+=1){
-			listHTML += "<li>" + arr[i] + "</li>"
-		}
-		listHTML += "</ol>"	;
-		return listHTML;
-}
-
-for(var i = 0; i < questions.length; i += 1){
-	question = questions[i][0];
-	answer = questions[i][1];
 	
-	response = prompt(question);
-	response = response.toLowerCase();
-	if (response === answer){
-		counter += 1;
-		correctAnswers.push(question);	
-	}else {
-		wrongAnswers.push(question);
+		$("#submit").click(function(){
+				
+			if(document.getElementById("r1").checked)
+				answer="1000";
+			if(document.getElementById("r2").checked)
+				answer="0100";
+			if(document.getElementById("r3").checked)
+				answer="0010";
+			if(document.getElementById("r4").checked)
+				answer="0001";
+			if(answer===quizK[i].correctAnswer){
+				console.log("correct");
+				correctAnswers.push(quizK[i].question);
+				counter+=1;
+			}else{
+				console.log("wrong");
+				wrongAnswers.push(quizK[i].question);
+			}
+					
+		i+=1;
+		
+			if(i>=quizK.length){
+				console.log("stop");
+				$("#question, #radio, #submit").fadeOut(1000);
+				$("#output").fadeIn(2000);
+				
+				html = "<p>You got " + counter + " out of " + quizK.length + " correct answers.</p>";
+
+				if(counter > 4){
+					html += "<h4>Congratulations! You achieved the rank of Jedi Knight</h4>";
+				} else if (counter < 5) {
+					html += "<p>Keep practice if you want to become a Jedi Knight</p>";
+				} 
+
+				html += "<p>You got these questions correct:</p>";
+				html += list(correctAnswers);
+				html += "<p>You got these questions wrong:</p>"
+				html += list(wrongAnswers);
+				print(html);
+
+			} else{
+
+			document.getElementById("question").innerHTML = quizK[i].question;
+
+			document.getElementById("c1").innerHTML = quizK[i].choices[0];
+			document.getElementById("c2").innerHTML = quizK[i].choices[1];
+			document.getElementById("c3").innerHTML = quizK[i].choices[2];
+			document.getElementById("c4").innerHTML = quizK[i].choices[3];
+			}
+		});
+	});
+
+	/*
+	=============================
+	=======End Jedi Knight=======
+	=============================
+	*/
+
+	var quizM = [{
+			question: "Who was Obi-Wan Kenobis Jedi master?",
+			choices: ["Yoda", "Qui-Gon Jinn", "Mace Windu", "Anakin Skywalker"],
+			correctAnswer: "0100" 
+		}, {
+		    question: "Who runs the operations on Cloud City?",
+		    choices: ["Han Solo", "Jaba the Hutt", "Darth Vader", "Lando Calrissian"],
+		    correctAnswer: "0001"
+		}, {
+		    question: "What movie was released in 1999?",
+		    choices: ["A New Hope", "The Phantom Menace", "Attack of the Clones", "Return of the Jedi"],
+		    correctAnswer: "0100"
+		}, {
+		    question: "What is the spacestation called that was destroyed in the battle of Yavin?",
+		    choices: ["Death Star", "Cloud City", "Valor", "Pellezara Station"],
+		    correctAnswer: "1000"
+		}, {
+		    question: "In which movie does Darth Vader defeat Obi-Wan?",
+		    choices: ["Revenge of the Sith", "Return of the Jedi", "A New Hope", "The Phantom Menace"],
+		    correctAnswer: "0010"
+		}, {  
+			question: "What is the name of the antagonist in Episode 1 - The phantom Menace?",
+			choices: ["Darth Maul", "General Grievous", "Darth Vader", "Count Dooku"],
+			correctAnswer: "1000" 
+		}, {
+		    question: "What is the traditional color of a siths lightsaber?",
+		    choices: ["Purple", "Blue", "Red", "Yellow"],
+		    correctAnswer: "0010"
+		}, {
+		    question: "What planet is the capitol planet in the Star Wars universe",
+		    choices: ["Coruscant", "Alderaan", "Kashyk", "Dantooine"],
+		    correctAnswer: "1000"
+		}, {
+		    question: "What is the name of the character that helped Luke get away from Tatooine?",
+		    choices: ["Greedo", "Obi-Wan Kenobi", "Han Solo", "Chewbacca"],
+		    correctAnswer: "0010"
+		}, {
+		    question: "What is the name of Poe Damerons astromech droid",
+		    choices: ["Choper", "R2D2", "c3p0", "BB-8"],
+		    correctAnswer: "0001"
+		}, {
+			question: "What is Han Solos spaceship called?",
+			choices: ["The Ghost", "Millennium Falcon", "Rouge Shadow", "Slave I"],
+			correctAnswer: "0100" 
+		}, {
+		    question: "Who is Luke Skywalkers sister?",
+		    choices: ["Padme Amidala", "Shmi Skywalker", "Leia Organa", "Jyn Erso"],
+		    correctAnswer: "0010"
+		}, {
+		    question: "What is the title of Episode VII?",
+		    choices: ["A New Hope", "Revenge of the Sith", "Rouge One", "The Force Awakens"],
+		    correctAnswer: "0001"
+		}, {
+		    question: "On what planet does the Gungans live?",
+		    choices: ["Geonosis", "Naboo", "Jakko", "Lothal"],
+		    correctAnswer: "0100"
+		}, {
+		    question: "What is the name of the golden colored protocol droid?",
+		    choices: ["Chopper", "K-2S0", "R2D2", "c3p0"],
+		    correctAnswer: "0001"
+		}, {  
+			question: "What is the name of the bounty hunter that Han Solo encounters on Tatooine in episode IV?",
+			choices: ["Greedo", "Jaba the Hutt", "Boba Fett", "Cad Bane"],
+			correctAnswer: "1000" 
+		}, {
+		    question: "Who is Luke Skywalkers and Leia Organas birthmother?",
+		    choices: ["Shmi Skywalker", "Padme Amidala", "Jyn Erso", "Hera Syndulla"],
+		    correctAnswer: "0100"
+		}, {
+		    question: "What is the name of the order that Ben Solo is part of?",
+		    choices: ["The Siths", "The Jedi", "Knights of Ren", "Nightsisters"],
+		    correctAnswer: "0010"
+		}, {
+		    question: "Who is the male lead character in Rouge One?",
+		    choices: ["Cassian Andor", "Finn", "Han Solo", "Galen Erso"],
+		    correctAnswer: "1000"
+		}, {
+		    question: "Who created the Star Wars universe",
+		    choices: ["Peter Jackson", "Christopher Nolan", "George Lucas", "Scott Ridley"],
+		    correctAnswer: "0010"
+		}];
+
+
+	var counter = 0;
+	var correctAnswers = [];
+	var wrongAnswers = [];
+	var html;
+
+
+	function print(message) {
+	  var outputDiv = document.getElementById("output").innerHTML = message;
 	}
-}
 
-html = "<p>You got " + counter + " out of " + questions.length + " correct answers.</p>";
-if(counter > 19){
-	html += "<p>Congratulations! You achieved the rank of Jedi Master</p>";
-} else if (counter < 20) {
-	html += "<p>Keep practice if you want to become a Jedi Master</p>";
-} 
+	function list(arr){
+		var listHTML = "<ol>";
+			for (var i=0; i < arr.length; i+=1){
+				listHTML += "<li>" + arr[i] + "</li>"
+			}
+			listHTML += "</ol>"	;
+			return listHTML;
+	}	
 
-html += "<p>You got these questions correct:</p>";
-html += list(correctAnswers);
-html += "<p>You got these questions wrong:</p>"
-html += list(wrongAnswers);
-print(html);
-});
+	$("#quiz20").click(function(){
+	var i = 0;
+
+		document.getElementById("radio").style.visibility = "visible";
+		document.getElementById("submit").style.visibility = "visible";
+		document.getElementById("question").innerHTML = quizM[i].question;
+		document.getElementById("c1").innerHTML = quizM[i].choices[0];
+		document.getElementById("c2").innerHTML = quizM[i].choices[1];
+		document.getElementById("c3").innerHTML = quizM[i].choices[2];
+		document.getElementById("c4").innerHTML = quizM[i].choices[3];
+
+	
+		$("#submit").click(function(){
+				
+			if(document.getElementById("r1").checked)
+				answer="1000";
+			if(document.getElementById("r2").checked)
+				answer="0100";
+			if(document.getElementById("r3").checked)
+				answer="0010";
+			if(document.getElementById("r4").checked)
+				answer="0001";
+			if(answer===quizM[i].correctAnswer){
+				console.log("correct");
+				correctAnswers.push(quizM[i].question);
+				counter+=1;
+			}else{
+				console.log("wrong");
+				wrongAnswers.push(quizM[i].question);
+			}
+					
+		i+=1;
+		
+			if(i>=quizM.length){
+				console.log("stop");
+				$("#question, #radio, #submit").fadeOut(1000);
+				$("#output").fadeIn(2000);
+				
+				html = "<p>You got " + counter + " out of " + quizM.length + " correct answers.</p>";
+
+				if(counter > 4){
+					html += "<h4>Congratulations! You achieved the rank of Jedi Master</h4>";
+				} else if (counter < 5) {
+					html += "<p>Keep practice if you want to become a Jedi Master</p>";
+				} 
+
+				html += "<p>You got these questions correct:</p>";
+				html += list(correctAnswers);
+				html += "<p>You got these questions wrong:</p>"
+				html += list(wrongAnswers);
+				print(html);
+
+			} else{
+
+			document.getElementById("question").innerHTML = quizM[i].question;
+
+			document.getElementById("c1").innerHTML = quizM[i].choices[0];
+			document.getElementById("c2").innerHTML = quizM[i].choices[1];
+			document.getElementById("c3").innerHTML = quizM[i].choices[2];
+			document.getElementById("c4").innerHTML = quizM[i].choices[3];
+			}
+		});
+	});
+
+/*
+=============================
+=======End Jedi Master=======
+=============================
+*/
+
+}); // Close (document).ready

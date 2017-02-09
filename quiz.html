@@ -65,12 +65,10 @@
 					<p>Padawan (5 questions)</p>
 					<p>Jedi Knight (10 questions)</p>
 					<p>Jedi Master (20 questions)</p>
-					<p>When you press one of the buttons a pop-up will appear.</p>
-			</div>
-			<div class="col-md-12 col-sm-12 col-xs-12">
 					<p>Start quiz by chosing a level.</p>
-			</div>	
-
+			</div>
+		</div>	
+		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-12">
 				<button class="btn btn-default" id="quiz5">Padawan</button>
 			</div>	
@@ -80,13 +78,32 @@
 			<div class="col-md-4 col-sm-4 col-xs-12">
 				<button class="btn btn-default" id="quiz20">Jedi Master</button>
 			</div>		
-			<div class="col-md-12">
+			
+			<div class="col-md-12 col-sm-12 col-xs-12">	
+				<h4 id="question"></h4>
+			</div>	
+			
+			<div class="col-md-6 col-sm-6 col-xs-12">	
+				<form id="radio">
+				  <input type="radio" id="r1" name="answer" value="c1"> <div id="c1"></div>
+				  <input type="radio" id="r2" name="answer" value="c2"> <div id="c2"></div>
+				  <input type="radio" id="r3" name="answer" value="c3"> <div id="c3"></div>
+				  <input type="radio" id="r4" name="answer" value="c4"> <div id="c4"></div>
+				</form>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12">	
 				<!--This part lets the user know how the quiz went, how many correct answers, which level they achived and which questions were correct or incorrect. -->
 				<div id="output">
 				
 				</div>
+			</div>		
+			<div class="col-md-12">
+				<button class="btn btn-default" id="submit">Submit</button>
 			</div>
+
+		
 		</div>
+	</div>
 		<footer>
       		<div class="row">
       			<div class="col-md-6 col-sm-4 col-xs-12">
