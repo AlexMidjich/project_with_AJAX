@@ -46,6 +46,8 @@ $(document).ready(function() {
 	$("#quiz5").click(function(){
 		document.getElementById("radio").style.visibility = "visible";
 		document.getElementById("submit").style.visibility = "visible";
+		document.getElementById("quiz10").style.display = "none";
+		document.getElementById("quiz20").style.display = "none";
 	var i = 0; //i is set to 0 so the first question in the object array will print out
 		
 		document.getElementById("question").innerHTML = quizP[i].question; //Prints the question
@@ -78,9 +80,8 @@ $(document).ready(function() {
 		
 			if(i>=quizP.length){ //When you have answered all questions
 				console.log("stop");//This line is not neccesary
-				$("#question, #radio, #submit").fadeOut(1000);
-				$("#output").fadeIn(2000);
-				
+				$("#question, #radio, #submit").fadeOut(0000);
+								
 				html = "<p>You got " + counter + " out of " + quizP.length + " correct answers.</p>";
 
 				if(counter > 4){
@@ -94,6 +95,10 @@ $(document).ready(function() {
 				html += "<p>You got these questions wrong:</p>"
 				html += list(wrongAnswers);
 				print(html);
+				document.getElementById("play").style.visibility = "visible";
+				$("#play").click(function(){
+					location.reload();
+				});
 
 			} else{
 
@@ -174,15 +179,17 @@ $(document).ready(function() {
 	}	
 
 	$("#quiz10").click(function(){
-	var i = 0;
+	var j = 0;
 		document.getElementById("radio").style.visibility = "visible";
 		document.getElementById("submit").style.visibility = "visible";
-		document.getElementById("question").innerHTML = quizK[i].question;
+		document.getElementById("quiz5").style.display = "none";
+		document.getElementById("quiz20").style.display = "none";
 
-		document.getElementById("c1").innerHTML = quizK[i].choices[0];
-		document.getElementById("c2").innerHTML = quizK[i].choices[1];
-		document.getElementById("c3").innerHTML = quizK[i].choices[2];
-		document.getElementById("c4").innerHTML = quizK[i].choices[3];
+		document.getElementById("question").innerHTML = quizK[j].question;
+		document.getElementById("c1").innerHTML = quizK[j].choices[0];
+		document.getElementById("c2").innerHTML = quizK[j].choices[1];
+		document.getElementById("c3").innerHTML = quizK[j].choices[2];
+		document.getElementById("c4").innerHTML = quizK[j].choices[3];
 
 	
 		$("#submit").click(function(){
@@ -195,21 +202,20 @@ $(document).ready(function() {
 				answer="0010";
 			if(document.getElementById("r4").checked)
 				answer="0001";
-			if(answer===quizK[i].correctAnswer){
+			if(answer===quizK[j].correctAnswer){
 				console.log("correct");
-				correctAnswers.push(quizK[i].question);
+				correctAnswers.push(quizK[j].question);
 				counter+=1;
 			}else{
 				console.log("wrong");
-				wrongAnswers.push(quizK[i].question);
+				wrongAnswers.push(quizK[j].question);
 			}
 					
-		i+=1;
+		j+=1;
 		
-			if(i>=quizK.length){
+			if(j>=quizK.length){
 				console.log("stop");
-				$("#question, #radio, #submit").fadeOut(1000);
-				$("#output").fadeIn(2000);
+				$("#question, #radio, #submit").fadeOut(0000);
 				
 				html = "<p>You got " + counter + " out of " + quizK.length + " correct answers.</p>";
 
@@ -225,14 +231,19 @@ $(document).ready(function() {
 				html += list(wrongAnswers);
 				print(html);
 
+				document.getElementById("play").style.visibility = "visible";
+				$("#play").click(function(){
+					location.reload();
+				});
+
 			} else{
 
-			document.getElementById("question").innerHTML = quizK[i].question;
+			document.getElementById("question").innerHTML = quizK[j].question;
 
-			document.getElementById("c1").innerHTML = quizK[i].choices[0];
-			document.getElementById("c2").innerHTML = quizK[i].choices[1];
-			document.getElementById("c3").innerHTML = quizK[i].choices[2];
-			document.getElementById("c4").innerHTML = quizK[i].choices[3];
+			document.getElementById("c1").innerHTML = quizK[j].choices[0];
+			document.getElementById("c2").innerHTML = quizK[j].choices[1];
+			document.getElementById("c3").innerHTML = quizK[j].choices[2];
+			document.getElementById("c4").innerHTML = quizK[j].choices[3];
 			}
 		});
 	});
@@ -346,15 +357,17 @@ $(document).ready(function() {
 	}	
 
 	$("#quiz20").click(function(){
-	var i = 0;
-
+	var y = 0;
+		
 		document.getElementById("radio").style.visibility = "visible";
 		document.getElementById("submit").style.visibility = "visible";
-		document.getElementById("question").innerHTML = quizM[i].question;
-		document.getElementById("c1").innerHTML = quizM[i].choices[0];
-		document.getElementById("c2").innerHTML = quizM[i].choices[1];
-		document.getElementById("c3").innerHTML = quizM[i].choices[2];
-		document.getElementById("c4").innerHTML = quizM[i].choices[3];
+		document.getElementById("quiz5").style.display = "none";
+		document.getElementById("quiz10").style.display = "none";
+		document.getElementById("question").innerHTML = quizM[y].question;
+		document.getElementById("c1").innerHTML = quizM[y].choices[0];
+		document.getElementById("c2").innerHTML = quizM[y].choices[1];
+		document.getElementById("c3").innerHTML = quizM[y].choices[2];
+		document.getElementById("c4").innerHTML = quizM[y].choices[3];
 
 	
 		$("#submit").click(function(){
@@ -367,21 +380,20 @@ $(document).ready(function() {
 				answer="0010";
 			if(document.getElementById("r4").checked)
 				answer="0001";
-			if(answer===quizM[i].correctAnswer){
+			if(answer===quizM[y].correctAnswer){
 				console.log("correct");
-				correctAnswers.push(quizM[i].question);
+				correctAnswers.push(quizM[y].question);
 				counter+=1;
 			}else{
 				console.log("wrong");
-				wrongAnswers.push(quizM[i].question);
+				wrongAnswers.push(quizM[y].question);
 			}
 					
-		i+=1;
+		y+=1;
 		
-			if(i>=quizM.length){
+			if(y>=quizM.length){
 				console.log("stop");
-				$("#question, #radio, #submit").fadeOut(1000);
-				$("#output").fadeIn(2000);
+				$("#question, #radio, #submit").fadeOut(0000);
 				
 				html = "<p>You got " + counter + " out of " + quizM.length + " correct answers.</p>";
 
@@ -397,14 +409,19 @@ $(document).ready(function() {
 				html += list(wrongAnswers);
 				print(html);
 
+				document.getElementById("play").style.visibility = "visible";
+				$("#play").click(function(){
+					location.reload();
+				});
+
 			} else{
 
-			document.getElementById("question").innerHTML = quizM[i].question;
+			document.getElementById("question").innerHTML = quizM[y].question;
 
-			document.getElementById("c1").innerHTML = quizM[i].choices[0];
-			document.getElementById("c2").innerHTML = quizM[i].choices[1];
-			document.getElementById("c3").innerHTML = quizM[i].choices[2];
-			document.getElementById("c4").innerHTML = quizM[i].choices[3];
+			document.getElementById("c1").innerHTML = quizM[y].choices[0];
+			document.getElementById("c2").innerHTML = quizM[y].choices[1];
+			document.getElementById("c3").innerHTML = quizM[y].choices[2];
+			document.getElementById("c4").innerHTML = quizM[y].choices[3];
 			}
 		});
 	});
