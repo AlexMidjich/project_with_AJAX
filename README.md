@@ -43,3 +43,5 @@ A school project to learn AJAX and to get more familiar with js, jquery and boot
 
 <p>What I can improve not just with this site but in general is to get a deeper knowledge for javascript, take for example the quiz-section. Instead of using "prompt" I would like to print out the questions directly on the page.</p>  
 
+<p>Fixed the quiz-section so that the questions is printed out on the page together with radiobuttons and different choices. I also adjusted the images on the index page so when hoovering over they will be colored instead.</p>
+
