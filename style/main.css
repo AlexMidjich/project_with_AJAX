@@ -117,7 +117,7 @@ Makes the content on index responsive
 	display: block;
 	width: 80%;
 	height: 200px;
-	padding-left: 60px;
+	padding-left: 50px;
 	padding-bottom: 10px;
 }
 .imgcontact{
@@ -133,6 +133,7 @@ Makes the content on index responsive
 	width: auto;
 	height: 300px;
 	margin: auto;
+
 }
 .imgsize{
 	display: block;
@@ -140,6 +141,8 @@ Makes the content on index responsive
 	width: auto;
 	height: 200px;
 	padding-bottom: 10px;
+	padding-left: 10px;
+
 }
 .imgcontact{
 	display: block;
@@ -147,6 +150,9 @@ Makes the content on index responsive
 	width: 40%;
 	height: 200px;
 	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+
 }
 }
 @media (max-width: 420px){
@@ -155,6 +161,8 @@ Makes the content on index responsive
 	margin: auto;
 	width: 90%;
 	height: 200px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 }
 
@@ -207,7 +215,12 @@ QUIZ
 ======================================
 */
 
-#radio, #submit{
+#quiz5, #quiz10, #quiz20{
+	margin-left: 20px;
+	margin-bottom: 5px;
+}
+
+#radio, #submit, #play{
 	visibility: hidden;
 }
 
@@ -220,10 +233,12 @@ QUIZ
 
 #r1, #r2, #r3, #r4{
 	display: block;
+	margin-left: 20px;
 } 
 #c1, #c2, #c3, #c4{
 	color: #ffd700;
 	padding-bottom: 20px;
+	padding-left: 20px;
 } 
 
 #output{
